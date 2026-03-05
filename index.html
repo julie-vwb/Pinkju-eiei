@@ -9,12 +9,12 @@
 
 <style>
 :root{
-/* เปลี่ยนโทนสีเป็นฟ้าม่วงตามที่ชอบ */
 --bg:#F0F4FF;
 --main:#A5B4F6;
 --dark:#7C83FD;
 --white:#FFFFFF;
 --glow:rgba(165,180,246,0.4);
+--online:#4ade80;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Mitr',sans-serif;}
@@ -81,10 +81,55 @@ font-weight:500;
 transition: 0.3s;
 }
 
-.btn-outline{
-background:#fff;
-border:2px dashed var(--main);
-color:var(--dark);
+/* Status Bar แบบปุ่มเส้นประเดิมแต่มีจุดกระพริบ */
+.status-checker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #fff;
+    border: 2px dashed var(--main);
+    color: var(--dark);
+    padding: 12px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 10px auto 20px;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.dot-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 12px;
+    height: 12px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: var(--online);
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.dot-pulse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--online);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+    z-index: 1;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    70% { transform: scale(2.5); opacity: 0; }
+    100% { transform: scale(2.5); opacity: 0; }
 }
 
 .btn-main{
@@ -157,7 +202,6 @@ border:1px solid #eef2ff;
 
 .small{font-size:12px;opacity:.7;margin-top:10px;}
 
-/* กฎของร้าน */
 .rules-list {
     text-align: left;
     font-size: 14px;
@@ -187,8 +231,12 @@ border:1px solid #eef2ff;
 <div class="badge">🎨 เว็บรับทำป้าย</div>
 </div>
 
-<a href="https://julie-vwb.github.io/pinkjulie-land/" target="_blank" class="btn btn-outline">
-เช็คคิวงาน & ดูพอร์ตโฟลิโอ ✨
+<a href="https://julie-vwb.github.io/pinkjulie-land/" target="_blank" class="status-checker">
+    <div class="dot-wrapper">
+        <div class="dot-pulse"></div>
+        <div class="dot"></div>
+    </div>
+    <span>เปิดรับงานอยู่นะคะ ✨</span>
 </a>
 </div>
 
