@@ -81,7 +81,12 @@ font-weight:500;
 transition: 0.3s;
 }
 
-/* Status Bar แบบปุ่มเส้นประเดิมแต่มีจุดกระพริบ */
+.btn-main{
+background:var(--main);
+color:#fff;
+}
+
+/* Status Bar @ Header */
 .status-checker {
     display: flex;
     align-items: center;
@@ -96,7 +101,6 @@ transition: 0.3s;
     font-weight: 500;
     margin: 10px auto 20px;
     width: 100%;
-    transition: 0.3s;
 }
 
 .dot-wrapper {
@@ -132,11 +136,6 @@ transition: 0.3s;
     100% { transform: scale(2.5); opacity: 0; }
 }
 
-.btn-main{
-background:var(--main);
-color:#fff;
-}
-
 .step{
 display:flex;
 align-items:center;
@@ -155,52 +154,66 @@ justify-content:center;
 font-size:13px;
 }
 
-.price-row{
-display:flex;
-flex-direction: column;
-gap: 5px;
-margin-bottom:10px;
-background:#fcfdff;
-padding:10px 15px;
-border-radius:15px;
-border-left: 4px solid var(--main);
+/* Price Row (No dot indicator per request) */
+.price-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    background: #fcfdff;
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid #eef2ff;
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
 }
 
-.price-tag{
-background:var(--main);
-color:#fff;
-padding:3px 12px;
-border-radius:20px;
-font-size:14px;
-width: fit-content;
+.price-row:hover {
+    background: #f5f8ff;
+    border-color: var(--main);
 }
 
-.footer{
-text-align:center;
-margin-top:30px;
+.work-title {
+    font-weight: 500;
+    color: var(--dark);
+    font-size: 15px;
 }
 
-.socials{
-display:flex;
-gap:8px;
-justify-content:center;
-margin-top:15px;
+.price-tag {
+    background: var(--main);
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 12px;
 }
 
-.socials a{
-flex:1;
-max-width:100px;
-text-align:center;
-padding:8px;
-border-radius:25px;
-background:#fff;
-text-decoration:none;
-color:var(--dark);
-font-size:13px;
-border:1px solid #eef2ff;
+.footer {
+    text-align: center;
+    margin-top: 30px;
 }
 
-.small{font-size:12px;opacity:.7;margin-top:10px;}
+.socials {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.socials a {
+    flex: 1;
+    max-width: 100px;
+    text-align: center;
+    padding: 8px;
+    border-radius: 25px;
+    background: #fff;
+    text-decoration: none;
+    color: var(--dark);
+    font-size: 13px;
+    border: 1px solid #eef2ff;
+}
+
+.small { font-size: 12px; opacity: .7; margin-top: 10px; }
 
 .rules-list {
     text-align: left;
@@ -215,61 +228,80 @@ border:1px solid #eef2ff;
 <div class="container">
 
 <div class="section center" style="border:none;box-shadow:none;background:transparent;">
-
-<div class="logo">
-<img src="Logo.jpeg" alt="logo">
-</div>
-
-<h1>pinkjujapipi</h1>
-<p style="color:var(--dark);opacity:.8;margin:10px 0 20px;">
-ร้านจูรับทำเว็บครบวงจรนะแม่น้า 🎀
-</p>
-
-<div class="badges">
-<div class="badge">🌐 เว็บแอพพรีเมียม</div>
-<div class="badge">🎮 เว็บรับเติมเกมส์</div>
-<div class="badge">🎨 เว็บรับทำป้าย</div>
-</div>
-
-<a href="https://julie-vwb.github.io/pinkjulie-land/" target="_blank" class="status-checker">
-    <div class="dot-wrapper">
-        <div class="dot-pulse"></div>
-        <div class="dot"></div>
+    <div class="logo">
+        <img src="Logo.jpeg" alt="logo">
     </div>
-    <span>เปิดรับงานอยู่นะคะ ✨</span>
-</a>
+
+    <h1>pinkjujapipi</h1>
+    <p style="color:var(--dark);opacity:.8;margin:10px 0 20px;">
+        ร้านจูรับทำเว็บครบวงจรนะแม่น้า 🎀
+    </p>
+
+    <div class="badges">
+        <div class="badge">🌐 เว็บแอพพรีเมียม</div>
+        <div class="badge">🎮 เว็บรับเติมเกมส์</div>
+        <div class="badge">🎨 เว็บรับทำป้าย</div>
+    </div>
+
+    <a href="https://julie-vwb.github.io/pinkjulie-land/" target="_blank" class="status-checker">
+        <div class="dot-wrapper">
+            <div class="dot-pulse"></div>
+            <div class="dot"></div>
+        </div>
+        <span>เปิดรับงานอยู่นะคะ ✨</span>
+    </a>
 </div>
 
 <div class="section">
-<h2>📝 ขั้นตอนการสั่ง</h2>
+    <h2>📝 ขั้นตอนการสั่ง</h2>
+    <div class="step"><div class="step-num">1</div><div>กรอกฟอร์ม เขียนรายละเอียดร้านค้า</div></div>
+    <div class="step"><div class="step-num">2</div><div>ใส่ลิงก์ ตัวอย่างงาน / แนบโลโก้</div></div>
+    <div class="step"><div class="step-num">3</div><div>ส่งงานให้เช็ค แจ้งยอด ชำระเงิน</div></div>
+    <div class="step"><div class="step-num">4</div><div>รอรับลิงก์ได้เลยค่า (4-8 ชม.)</div></div>
 
-<div class="step"><div class="step-num">1</div><div>กรอกฟอร์ม เขียนรายละเอียดร้านค้า</div></div>
-<div class="step"><div class="step-num">2</div><div>ใส่ลิงก์ ตัวอย่างงาน / แนบโลโก้</div></div>
-<div class="step"><div class="step-num">3</div><div>ส่งงานให้เช็ค แจ้งยอด ชำระเงิน</div></div>
-<div class="step"><div class="step-num">4</div><div>รอรับลิงก์ได้เลยค่า (4-8 ชม.)</div></div>
-
-<a href="https://line.me/ti/p/LfBtdhlrVa" class="btn btn-main">สั่งงานคลิกเลย</a>
+    <a href="https://line.me/ti/p/LfBtdhlrVa" class="btn btn-main">สั่งงานคลิกเลย</a>
 </div>
 
 <div class="section">
-<h2>⭐️ ตัวอย่างงาน (คลิกชม)</h2>
+    <h2>⭐️ ตัวอย่างงาน (คลิกชม)</h2>
+    
+    <a href="https://julie-vwb.github.io/pinkjulie-land/" class="price-row" target="_blank">
+        <span class="work-title">Pinkjulie Land Port</span><span class="price-tag">Portfolio</span>
+    </a>
 
-<div class="price-row">
-    <a href="https://julie-vwb.github.io/mahatep-shop/" target="_blank" style="text-decoration:none; color:inherit;"><span>Mahatep Shop - เว็บเติมเกมส์</span></a>
-    <span class="price-tag">Premium Design</span>
-</div>
+    <a href="https://julie-vwb.github.io/mahatep-shop/" class="price-row" target="_blank">
+        <span class="work-title">Mahatep Shop</span><span class="price-tag">Game Store</span>
+    </a>
 
-<div class="price-row">
-    <a href="https://julie-vwb.github.io/babybear-design/" target="_blank" style="text-decoration:none; color:inherit;"><span>Babybear - เว็บรับทำป้าย</span></a>
-    <span class="price-tag">Cute Style</span>
-</div>
+    <a href="https://julie-vwb.github.io/cxllmestore-shop/" class="price-row" target="_blank">
+        <span class="work-title">Cxllmestore Shop</span><span class="price-tag">Web Store</span>
+    </a>
 
-<div class="price-row">
-    <a href="https://julie-vwb.github.io/luna-webstudio/" target="_blank" style="text-decoration:none; color:inherit;"><span>Luna Webstudio - พอร์ตงาน</span></a>
-    <span class="price-tag">Professional</span>
-</div>
+    <a href="https://julie-vwb.github.io/cooper-shop/" class="price-row" target="_blank">
+        <span class="work-title">Cooper Shop</span><span class="price-tag">Web Store</span>
+    </a>
 
-<a href="https://julie-vwb.github.io/pinkjulie-land/" target="_blank" class="btn btn-main">ดูผลงานทั้งหมด</a>
+    <a href="https://julie-vwb.github.io/babybear-design/" class="price-row" target="_blank">
+        <span class="work-title">Babybear Design</span><span class="price-tag">Signage</span>
+    </a>
+
+    <a href="https://julie-vwb.github.io/tanewcutie-design/" class="price-row" target="_blank">
+        <span class="work-title">Tanewcutie Design</span><span class="price-tag">Signage</span>
+    </a>
+
+    <a href="https://julie-vwb.github.io/meow-font/" class="price-row" target="_blank">
+        <span class="work-title">Meow Font Shop</span><span class="price-tag">Font Store</span>
+    </a>
+
+    <a href="https://julie-vwb.github.io/waray-design/" class="price-row" target="_blank">
+        <span class="work-title">Waray Design</span><span class="price-tag">Design</span>
+    </a>
+
+    <a href="https://julie-vwb.github.io/luna-webstudio/" class="price-row" target="_blank">
+        <span class="work-title">Luna Webstudio</span><span class="price-tag">Studio</span>
+    </a>
+
+    <a href="https://julie-vwb.github.io/pinkjulie-land/" target="_blank" class="btn btn-main">ดูผลงานทั้งหมด</a>
 </div>
 
 <div class="section">
@@ -283,16 +315,12 @@ border:1px solid #eef2ff;
 </div>
 
 <div class="footer">
-<a href="https://line.me/ti/p/LfBtdhlrVa" class="btn btn-main">ติดต่อสอบถามคลิก 🎀</a>
-
-<div class="socials">
-<a href="https://www.facebook.com/profile.php?id=61554192600355" target="_blank">Facebook</a>
-<a href="https://line.me/ti/p/LfBtdhlrVa" target="_blank">Line</a>
-</div>
-
-<p class="small">
-© 2026 pinkjujapipi
-</p>
+    <a href="https://line.me/ti/p/LfBtdhlrVa" class="btn btn-main">ติดต่อสอบถามคลิก 🎀</a>
+    <div class="socials">
+        <a href="https://www.facebook.com/profile.php?id=61554192600355" target="_blank">Facebook</a>
+        <a href="https://line.me/ti/p/LfBtdhlrVa" target="_blank">Line</a>
+    </div>
+    <p class="small">© 2026 pinkjujapipi</p>
 </div>
 
 </div>
