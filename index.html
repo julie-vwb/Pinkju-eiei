@@ -9,7 +9,8 @@
 
 <style>
 :root{
---bg:#F0F4FF;
+/* ปรับพื้นหลังไล่สีฟ้าม่วง */
+--bg-gradient: linear-gradient(135deg, #F0F4FF 0%, #F5EFFF 100%);
 --main:#A5B4F6;
 --dark:#7C83FD;
 --white:#FFFFFF;
@@ -20,15 +21,38 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Mitr',sans-serif;}
 
 body{
-background:var(--bg);
+background: var(--bg-gradient);
+background-attachment: fixed;
 display:flex;
 justify-content:center;
+overflow-x: hidden;
+position: relative;
+}
+
+/* พื้นหลังอิโมจิ */
+.bg-emojis {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    font-size: 24px;
+}
+.floating {
+    position: absolute;
+    animation: float 6s ease-in-out infinite;
+    opacity: 0.5;
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
 }
 
 .container{
 max-width:500px;
 width:100%;
 padding:20px 15px 40px;
+position: relative;
+z-index: 1;
 }
 
 .section{
@@ -43,14 +67,24 @@ border:2px solid var(--main);
 h1,h2,h3{color:var(--dark);}
 .center{text-align:center;}
 
+/* โลโก้พร้อมอิโมจิรอบๆ */
+.logo-wrapper {
+    position: relative;
+    width: fit-content;
+    margin: 0 auto 20px;
+}
+.logo-emoji {
+    position: absolute;
+    font-size: 28px;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.1));
+}
 .logo{
 width:150px;height:150px;
 border-radius:50%;
 overflow:hidden;
-margin:0 auto 20px;
 box-shadow:0 6px 20px var(--glow);
+border: 4px solid #fff;
 }
-
 .logo img{width:100%;height:100%;object-fit:cover;}
 
 .badges{
@@ -86,7 +120,6 @@ background:var(--main);
 color:#fff;
 }
 
-/* Status Bar @ Header */
 .status-checker {
     display: flex;
     align-items: center;
@@ -154,7 +187,6 @@ justify-content:center;
 font-size:13px;
 }
 
-/* Price Row (No dot indicator per request) */
 .price-row {
     display: flex;
     align-items: center;
@@ -225,11 +257,27 @@ font-size:13px;
 </head>
 
 <body>
+
+<div class="bg-emojis">
+    <div class="floating" style="top:10%; left:10%;">🔮</div>
+    <div class="floating" style="top:20%; right:15%; animation-delay: 1s;">🎀</div>
+    <div class="floating" style="bottom:15%; left:12%; animation-delay: 2s;">🩷</div>
+    <div class="floating" style="bottom:30%; right:10%; animation-delay: 1.5s;">🌙</div>
+    <div class="floating" style="top:50%; left:5%; animation-delay: 0.5s;">✨</div>
+    <div class="floating" style="top:70%; right:5%; animation-delay: 2.5s;">🔮</div>
+</div>
+
 <div class="container">
 
 <div class="section center" style="border:none;box-shadow:none;background:transparent;">
-    <div class="logo">
-        <img src="Logo.jpeg" alt="logo">
+    
+    <div class="logo-wrapper">
+        <div class="logo-emoji" style="top:-10px; left:-15px;">✨</div>
+        <div class="logo-emoji" style="bottom:0px; right:-15px;">🌙</div>
+        <div class="logo-emoji" style="top:20px; right:-25px;">🎀</div>
+        <div class="logo">
+            <img src="Logo.jpeg" alt="logo">
+        </div>
     </div>
 
     <h1>pinkjujapipi</h1>
